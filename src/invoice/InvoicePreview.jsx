@@ -118,7 +118,6 @@ export default function InvoicePreview({ data }) {
             </li>
           </ol>
         </div>
-        {/* Footer: Payment & Signature (Source: [cite: 39-46]) */}
         <div className="bottom-bar">
           <div>
             <div className="section-head">Payment Info:</div>
