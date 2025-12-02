@@ -1,4 +1,4 @@
-export default function InvoicePreview({ data }) {
+export default function InvoicePreview({ data, contentRef }) {
   const subtotal = data.items.reduce(
     (acc, item) => acc + item.price * item.qty,
     0
@@ -11,7 +11,7 @@ export default function InvoicePreview({ data }) {
 
   return (
     <div className="preview-container">
-      <div className="invoice-card">
+      <div className="invoice-card" ref={contentRef}>
         <div className="header-section">
           <div>
             <div className="logo-circle">

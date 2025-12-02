@@ -1,4 +1,4 @@
-export default function InvoiceForm({ data, onChange }) {
+export default function InvoiceForm({ data, onChange, reactToPrintFn }) {
   const handleChange = (e) => {
     const { name, value } = e.target;
     onChange({ ...data, [name]: value });
@@ -164,6 +164,7 @@ export default function InvoiceForm({ data, onChange }) {
           />
         </div>
       </div>
+      <button onClick={reactToPrintFn}>Print</button>
     </div>
   );
 }

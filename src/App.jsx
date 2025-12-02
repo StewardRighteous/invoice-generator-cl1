@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-
+import { useReactToPrint } from "react-to-print";
+import { useRef } from "react";
 import InvoiceForm from "./invoice/InvoiceForm";
 import InvoicePreview from "./invoice/InvoicePreview";
 
-const App = () => {
+export default function App() {
   const [invoiceData, setInvoiceData] = useState({
     clientName: "ALAM AMAN SERVICES (M) SDN BHD",
     clientPhone: "010-9130661",
@@ -19,13 +20,26 @@ const App = () => {
     accountNumber: "0040 5880 0622",
     accountName: "Babu Rao",
   });
+  const date = new Date();
+  const contentRef = useRef(null);
+  const reactToPrintFn = useReactToPrint({
+    contentRef,
+    documentTitle:
+      invoiceData.clientName.split(" ").join("") +
+      date.getFullYear().toString() +
+      date.getDay().toString() +
+      date.getMonth().toString() +
+      "_INVOICE",
+  });
 
   return (
     <div className="app-container">
-      <InvoiceForm data={invoiceData} onChange={setInvoiceData} />
-      <InvoicePreview data={invoiceData} />
+      <InvoiceForm
+        data={invoiceData}
+        onChange={setInvoiceData}
+        reactToPrintFn={reactToPrintFn}
+      />
+      <InvoicePreview data={invoiceData} contentRef={contentRef} />
     </div>
   );
-};
-
-export default App;
+}
