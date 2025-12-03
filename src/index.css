@@ -69,9 +69,9 @@ h6 {
 
 @font-face {
   font-family: "Montserrat";
-  src: url("/public/fonts/Montserrat-VariableFont_wght.woff2") format(woff2),
-    url("/public/fonts/Montserrat-VariableFont_wght.woff") format(woff),
-    url("/public/fonts/Montserrat-VariableFont_wght.ttf") format(ttf);
+  src: url("/fonts/Montserrat-VariableFont_wght.woff2") format(woff2),
+    url("/fonts/Montserrat-VariableFont_wght.woff") format(woff),
+    url("/fonts/Montserrat-VariableFont_wght.ttf") format(ttf);
 }
 
 body {
@@ -300,7 +300,7 @@ textarea {
 .invoice-table th {
   background-color: #4b5563;
   color: #fff;
-  padding: 0.75rem;
+  padding: 1rem 0.75rem;
   text-align: left;
   font-size: 0.85rem;
   text-transform: uppercase;
@@ -401,5 +401,6 @@ textarea {
 
   .preview-container {
     width: 100%;
+    min-width: 794px;
   }
 }
