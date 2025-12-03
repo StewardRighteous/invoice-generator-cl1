@@ -135,7 +135,7 @@ export default function InvoiceForm({ data, onChange, reactToPrintFn }) {
         </div>
       </div>
       <button onClick={reactToPrintFn} className="add-btn">
-        Print
+        Download Invoice
       </button>
     </div>
   );

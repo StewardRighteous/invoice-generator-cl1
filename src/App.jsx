@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { useReactToPrint } from "react-to-print";
 import { useRef } from "react";
 import InvoiceForm from "./invoice/InvoiceForm";
 import InvoicePreview from "./invoice/InvoicePreview";
+import downloadInvoiceAsPDF from "./utility/pdfconvertor";
 
 export default function App() {
   const [invoiceData, setInvoiceData] = useState({
@@ -14,24 +14,16 @@ export default function App() {
     serviceDetails: "KEYCHAIN PRINTING, NFC PROGRAMMING",
     shipping: 8.0,
   });
-  const date = new Date();
   const contentRef = useRef(null);
-  const reactToPrintFn = useReactToPrint({
-    contentRef,
-    documentTitle:
-      invoiceData.clientName.split(" ").join("") +
-      date.getFullYear().toString() +
-      date.getDay().toString() +
-      date.getMonth().toString() +
-      "_INVOICE",
-  });
 
   return (
     <div className="app-container">
       <InvoiceForm
         data={invoiceData}
         onChange={setInvoiceData}
-        reactToPrintFn={reactToPrintFn}
+        reactToPrintFn={() =>
+          downloadInvoiceAsPDF(contentRef, invoiceData.clientName)
+        }
       />
       <InvoicePreview data={invoiceData} contentRef={contentRef} />
     </div>
