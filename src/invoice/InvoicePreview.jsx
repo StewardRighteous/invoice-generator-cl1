@@ -87,30 +87,7 @@ export default function InvoicePreview({ data, contentRef }) {
             </div>
           </div>
         </div>
-        <div className="terms-section">
-          <div className="section-head">Terms and Conditions:</div>
-          <ol className="terms-list">
-            <li>
-              <b>Full payment </b>must be made upon appointment confirmation.
-            </li>
 
-            <li>
-              <b>Any unpaid balances</b> shall accrue interest at a rate of 1.5%
-              per month, calculated daily from the due date.
-            </li>
-
-            <li>
-              <b>Cancellation fee</b> equivalent to the quoted/contract sum
-              shall be imposed if subsequently canceled without fault on Tucker
-              Productions' part.
-            </li>
-
-            <li>
-              Tucker Productions indemnified against all claims, loss, damages,
-              actions, costs, etc., arising from services provided.
-            </li>
-          </ol>
-        </div>
         <img src={bottom} alt="" />
       </div>
     </div>
