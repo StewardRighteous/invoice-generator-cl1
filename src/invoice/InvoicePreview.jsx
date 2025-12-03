@@ -1,3 +1,7 @@
+import logo from "/logo.png";
+import head from "/head.jpg";
+import bottom from "/bottom.jpg";
+
 export default function InvoicePreview({ data, contentRef }) {
   const subtotal = data.items.reduce(
     (acc, item) => acc + item.price * item.qty,
@@ -12,37 +16,27 @@ export default function InvoicePreview({ data, contentRef }) {
   return (
     <div className="preview-container">
       <div className="invoice-card" ref={contentRef}>
+        <img src={head} alt="" />
         <div className="header-section">
-          <div>
-            <div className="logo-circle">
-              <div className="logo-inner"></div>
-            </div>
-            <h1 className="invoice-title">INVOICE</h1>
-          </div>
+          <h1 className="invoice-title">INVOICE</h1>
 
           <div className="company-logo-area">
-            <img
-              src="https://placehold.co/100x100?text=Tucker"
-              alt="Tucker Logo"
-            />
+            <img src={logo} alt="Tucker Logo" />
           </div>
-        </div>
-        <div className="info-section">
-          <div>
+          <div className="client-details">
             <p className="client-label">to:</p>
             <h2 className="client-name">{data.clientName}</h2>
             <p className="client-phone">{data.clientPhone}</p>
             <div className="client-badge">AA</div>
           </div>
-          <div>
-            <div className="invoice-meta-grid">
-              <span className="meta-label">Invoice #</span>
-              <span>{data.invoiceNumber}</span>
-              <span className="meta-label">Date</span>
-              <span>{data.date}</span>
-            </div>
+          <div className="invoice-meta-grid">
+            <span className="meta-label">Invoice #</span>
+            <span>{data.invoiceNumber}</span>
+            <span className="meta-label">Date</span>
+            <span>{data.date}</span>
           </div>
         </div>
+
         <table className="invoice-table">
           <thead>
             <tr>
@@ -97,54 +91,27 @@ export default function InvoicePreview({ data, contentRef }) {
           <div className="section-head">Terms and Conditions:</div>
           <ol className="terms-list">
             <li>
-              Full payment must be made upon appointment confirmation. [cite:
-              33]
+              <b>Full payment </b>must be made upon appointment confirmation.
             </li>
 
             <li>
-              Any unpaid balances shall accrue interest at a rate of 1.5% per
-              month, calculated daily from the due date. [cite: 34]
+              <b>Any unpaid balances</b> shall accrue interest at a rate of 1.5%
+              per month, calculated daily from the due date.
             </li>
 
             <li>
-              Cancellation fee equivalent to the quoted/contract sum shall be
-              imposed if subsequently canceled without fault on Tucker
-              Productions' part. [cite: 36]
+              <b>Cancellation fee</b> equivalent to the quoted/contract sum
+              shall be imposed if subsequently canceled without fault on Tucker
+              Productions' part.
             </li>
 
             <li>
               Tucker Productions indemnified against all claims, loss, damages,
-              actions, costs, etc., arising from services provided. [cite: 37]
+              actions, costs, etc., arising from services provided.
             </li>
           </ol>
         </div>
-        <div className="bottom-bar">
-          <div>
-            <div className="section-head">Payment Info:</div>
-            <div className="bank-info">
-              <div className="maybank-logo">May</div>
-              <div className="bank-text">
-                <p>
-                  <span>Account #:</span> {data.accountNumber}
-                </p>
-                <p>
-                  <span>A/C Name:</span> {data.accountName}
-                </p>
-                <p>
-                  <span>Bank Details:</span> {data.bankName}
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="signature-block">
-            <div className="sign-title">Authorised Sign</div>
-            <div className="signature-line">
-              <span className="fake-signature">Babu Rao</span>
-            </div>
-            <div className="sign-name">Babu Rao</div>
-          </div>
-        </div>
+        <img src={bottom} alt="" />
       </div>
     </div>
   );
