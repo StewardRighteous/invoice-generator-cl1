@@ -22,6 +22,11 @@ export default function InvoiceForm({ data, onChange, reactToPrintFn }) {
     onChange({ ...data, items: newItems });
   };
 
+  const handleLogoInput = (e) => {
+    const url = URL.createObjectURL(e.target.files[0]);
+    onChange({ ...data, clientLogo: url });
+  };
+
   return (
     <div className="form-container">
       <h2 className="form-title">Edit Invoice Details</h2>
@@ -45,6 +50,15 @@ export default function InvoiceForm({ data, onChange, reactToPrintFn }) {
             onChange={handleChange}
           />
         </div>
+        <div className="input-group">
+          <label>Logo</label>
+          <input
+            type="file"
+            name="clientLogo"
+            value={""}
+            onChange={handleLogoInput}
+          />
+        </div>
       </div>
       <div className="form-section">
         <h3 className="section-title">Invoice Meta</h3>
@@ -56,6 +70,7 @@ export default function InvoiceForm({ data, onChange, reactToPrintFn }) {
               name="invoiceNumber"
               value={data.invoiceNumber}
               onChange={handleChange}
+              accept="image/*"
             />
           </div>
           <div className="input-group">
@@ -90,22 +105,28 @@ export default function InvoiceForm({ data, onChange, reactToPrintFn }) {
               />
             </div>
             <div className="input-row">
-              <input
-                type="number"
-                placeholder="Price"
-                value={item.price}
-                onChange={(e) =>
-                  handleItemChange(index, "price", parseFloat(e.target.value))
-                }
-              />
-              <input
-                type="number"
-                placeholder="Qty"
-                value={item.qty}
-                onChange={(e) =>
-                  handleItemChange(index, "qty", parseFloat(e.target.value))
-                }
-              />
+              <label htmlFor="">
+                Price
+                <input
+                  type="number"
+                  placeholder="Price"
+                  value={item.price}
+                  onChange={(e) =>
+                    handleItemChange(index, "price", parseFloat(e.target.value))
+                  }
+                />
+              </label>
+              <label htmlFor="">
+                Quantity
+                <input
+                  type="number"
+                  placeholder="Qty"
+                  value={item.qty}
+                  onChange={(e) =>
+                    handleItemChange(index, "qty", parseFloat(e.target.value))
+                  }
+                />
+              </label>
             </div>
           </div>
         ))}

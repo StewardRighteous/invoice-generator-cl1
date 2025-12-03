@@ -27,7 +27,12 @@ export default function InvoicePreview({ data, contentRef }) {
             <p className="client-label">to:</p>
             <h2 className="client-name">{data.clientName}</h2>
             <p className="client-phone">{data.clientPhone}</p>
-            <div className="client-badge">AA</div>
+            <div
+              className="client-badge"
+              style={{ display: data.clientLogo != null ? "flex" : "none" }}
+            >
+              <img src={data.clientLogo} alt="" />
+            </div>
           </div>
           <div className="invoice-meta-grid">
             <span className="meta-label">Invoice #</span>

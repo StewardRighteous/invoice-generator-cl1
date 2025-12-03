@@ -9,6 +9,7 @@ export default function App() {
     clientName: "ALAM AMAN SERVICES (M) SDN BHD",
     clientPhone: "010-9130661",
     invoiceNumber: "TPI2025219",
+    clientLogo: null,
     date: "21/09/2025",
     items: [{ description: "NFC KEYCHAIN (single side)", price: 30.0, qty: 2 }],
     serviceDetails: "KEYCHAIN PRINTING, NFC PROGRAMMING",
