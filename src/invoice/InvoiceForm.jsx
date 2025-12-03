@@ -134,37 +134,9 @@ export default function InvoiceForm({ data, onChange, reactToPrintFn }) {
           />
         </div>
       </div>
-      <div className="form-section">
-        <h3 className="section-title">Bank Info</h3>
-        <div className="input-group">
-          <label>Bank Name</label>
-          <input
-            type="text"
-            name="bankName"
-            value={data.bankName}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="input-group">
-          <label>Account Name</label>
-          <input
-            type="text"
-            name="accountName"
-            value={data.accountName}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="input-group">
-          <label>Account Number</label>
-          <input
-            type="text"
-            name="accountNumber"
-            value={data.accountNumber}
-            onChange={handleChange}
-          />
-        </div>
-      </div>
-      <button onClick={reactToPrintFn}>Print</button>
+      <button onClick={reactToPrintFn} className="add-btn">
+        Print
+      </button>
     </div>
   );
 }
