@@ -6,14 +6,14 @@ import downloadInvoiceAsPDF from "./utility/pdfconvertor";
 
 export default function App() {
   const [invoiceData, setInvoiceData] = useState({
-    clientName: "ALAM AMAN SERVICES (M) SDN BHD",
-    clientPhone: "010-9130661",
-    invoiceNumber: "TPI2025219",
+    clientName: "",
+    clientPhone: "",
+    invoiceNumber: "",
     clientLogo: null,
-    date: "21/09/2025",
-    items: [{ description: "NFC KEYCHAIN (single side)", price: 30.0, qty: 2 }],
-    serviceDetails: "KEYCHAIN PRINTING, NFC PROGRAMMING",
-    shipping: 8.0,
+    date: "",
+    items: [],
+    serviceDetails: "",
+    shipping: 0.0,
   });
   const contentRef = useRef(null);
 
