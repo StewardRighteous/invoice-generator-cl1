@@ -69,8 +69,7 @@ export default function InvoiceForm({ data, onChange, reactToPrintFn }) {
               type="text"
               name="invoiceNumber"
               value={data.invoiceNumber}
-              onChange={handleChange}
-              accept="image/*"
+              readOnly={true}
             />
           </div>
           <div className="input-group">

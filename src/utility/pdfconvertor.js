@@ -3,7 +3,8 @@ import jsPDF from "jspdf";
 
 export default async function downloadInvoiceAsPDF(
   contentRef,
-  clientName = ""
+  clientName = "",
+  invoiceNumber
 ) {
   if (!contentRef.current) {
     console.error("Invoice content reference not found.");
@@ -29,13 +30,7 @@ export default async function downloadInvoiceAsPDF(
 
   pdf.addImage(imgData, "PNG", 0, 0, canvas.width, canvas.height);
 
-  const date = new Date();
-  const fileName =
-    clientName +
-    date.getFullYear().toString() +
-    date.getDay().toString() +
-    date.getMonth().toString() +
-    "_INVOICE";
+  const fileName = clientName + "_" + invoiceNumber + "_INVOICE";
 
   pdf.save(fileName);
 }

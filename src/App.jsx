@@ -3,12 +3,13 @@ import { useRef } from "react";
 import InvoiceForm from "./invoice/InvoiceForm";
 import InvoicePreview from "./invoice/InvoicePreview";
 import downloadInvoiceAsPDF from "./utility/pdfconvertor";
+import { v4 } from "uuid";
 
 export default function App() {
   const [invoiceData, setInvoiceData] = useState({
     clientName: "",
     clientPhone: "",
-    invoiceNumber: "",
+    invoiceNumber: v4(),
     clientLogo: null,
     date: "",
     items: [],
@@ -23,7 +24,11 @@ export default function App() {
         data={invoiceData}
         onChange={setInvoiceData}
         reactToPrintFn={() =>
-          downloadInvoiceAsPDF(contentRef, invoiceData.clientName)
+          downloadInvoiceAsPDF(
+            contentRef,
+            invoiceData.clientName,
+            invoiceData.invoiceNumber
+          )
         }
       />
       <InvoicePreview data={invoiceData} contentRef={contentRef} />
